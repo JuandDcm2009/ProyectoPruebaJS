@@ -1,13 +1,13 @@
 import { dataFrom } from "../api.js";
 import { parseEvent } from "../helper.js";
 import { setMessage, updateCartUI } from "../app.js";
+import { actualizarDatos } from "../cardDetails.js";
 
 const geo = await dataFrom(parseEvent);
 let LocalCart = localStorage.getItem("Cart");
-let cart = JSON.parse(LocalCart);
+let cart = LocalCart ? JSON.parse(LocalCart) : []; 
 
 console.log(cart)
-
 
 export class Card extends HTMLElement {
     constructor() {
@@ -60,6 +60,14 @@ export class Card extends HTMLElement {
             
 
         });
+
+        const detailsButton = this.shadowRoot.querySelector(".titleCard");
+
+        detailsButton.addEventListener("click", () => {
+            console.log("Click!");
+            document.location.href = '../App/cards.html';
+            actualizarDatos(obj);
+        })
 
         
     }
