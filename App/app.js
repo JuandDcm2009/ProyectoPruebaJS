@@ -39,6 +39,7 @@ const fPriceMin = document.querySelector("#PriceMin");
 const fRate = document.querySelector("#rate");
 const fSearchButton = document.querySelector(".sButton");
 const fForm = document.querySelector(".filter-form");
+const fSearchBar = document.querySelector("#searchBar");
 
 const checkPrice = document.querySelector("#checkPrice");
 const checkRate = document.querySelector("#rateCheck");
@@ -84,12 +85,15 @@ fSearchButton.addEventListener("click", (e) => {
     priceMax: Number(fPriceMax.value),
     priceMin: Number(fPriceMin.value),
     rate: Number(fRate.value),
+    bar: fSearchBar.value.split(" ")
   };
-
+  console.log(formulario.bar)
   console.log(formulario);
   let objectosFiltrados = [];
 
   geo.forEach((e) => {
+
+    let words = 0;
     if (formulario.category != "all" && e.category != formulario.category) {
       return;
     }
@@ -104,6 +108,14 @@ fSearchButton.addEventListener("click", (e) => {
         return;
       }
     }
+
+    formulario.bar.forEach((s) => {
+      if (e.title.toLowerCase().includes(s.toLowerCase())) {
+          words += 1;
+      }
+    });
+
+    if (words <= 0) {return}
 
     objectosFiltrados.push(e);
   });

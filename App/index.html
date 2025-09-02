@@ -21,7 +21,7 @@
   <body>
     <header>
       <div class="header">
-         <h1 class="headerTitle">Fake Store</h1>
+         <h1 class="headerTitle">CHEIN</h1>
         <div class="down-section">
           <div class="cart-container">
             <p class="cart-count">0</p>
@@ -47,22 +47,21 @@
             <input type="checkbox" id="checkPrice">
 
             <label for="Price">Price</label>
-            <input type="number" id="PriceMin" placeholder="Min" min="0" />
-            <input
-              type="number"
-              id="PriceMax"
-              placeholder="Max"
-              min="0"
-            />
+            <input type="number" id="PriceMin" placeholder="Min" min="0" step="0.01"/>
+            <input type="number" id="PriceMax" placeholder="Max" min="0" step="0.01"/>
           </div>
           <div class="container">
             <input type="checkbox" id="rateCheck">
             <label for="rate">MinRate</label>
             <input type="number" id="rate" max="5" min="0" placeholder="rate" step="0.01" />
           </div>
+          
         </div>
-
-        <button class="sButton">Search</button>
+        <div class="another-container">
+          <input type="text" id="searchBar" placeholder="Search by words">
+          <button class="sButton">Search</button>
+        </div>
+        
       </form>
     </section>
     <main>
@@ -70,6 +69,6 @@
         <div class="mainCards"></div>
       </div>
     </main>
-    
+
   </body>
 </html>

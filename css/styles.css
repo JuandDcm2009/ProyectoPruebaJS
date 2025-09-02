@@ -232,6 +232,23 @@ body {
   outline: 0;
 }
 
+#searchBar {
+  display: block;
+  width: 260px;
+  text-align: left;
+  background-color: white;
+  border-radius: 10px;
+  color: #252525;
+  padding: 0px 20px;
+}
+
+
+.another-container {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  align-items: center;
+}
 /* TODO: Cards Items*/
 
 main {
