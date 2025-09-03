@@ -19,10 +19,10 @@ const cartButton = document.querySelector(".btn1");
 
 
 onCart = cart.some(e => e.id === ActualObj.id);
+
 console.log(onCart)
 if (cartButton) {
     if(onCart) {cartButton.textContent = "Remove from cart";} else {cartButton.textContent = "Add to cart"}
-
 
 cartButton.addEventListener("click", () => {
 

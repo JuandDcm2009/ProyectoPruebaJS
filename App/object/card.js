@@ -25,10 +25,7 @@ export class Card extends HTMLElement {
         //Elements 
         const obj = this.getObject(this.id, geo);
         const button = this.shadowRoot.querySelector(".cardButton");
-
-        
         this.onCart = cart.some(e => e.id === obj.id);
-
         if (!this.onCart) {button.textContent = "Add to cart";} 
         else {button.textContent = "Remove from cart";}
 
@@ -202,26 +199,26 @@ export class Card extends HTMLElement {
         </style>
 
         <div class="itemCard">
-        <img
-          src="${img}"
-          alt="Imagen"
-          class="imgCard"
-        />
-        <p class="cardPrice">$ ${price}</p>
-        <p class="titleCard">
-          ${title}
-        </p>
+            <img
+            src="${img}"
+            alt="Imagen"
+            class="imgCard"
+            />
+            <p class="cardPrice">$ ${price}</p>
+            <p class="titleCard">
+            ${title}
+            </p>
 
-        <div class="cardButton">Add to cart</div>
-        <div class="rate-container">
-          <div>
-            <img src="../src/star.svg" alt="Icon" />
-            <p class="cardRate">${rate}</p>
-          </div>
+            <div class="cardButton">Add to cart</div>
+                <div class="rate-container">
+                <div>
+                    <img src="../src/star.svg" alt="Icon" />
+                    <p class="cardRate">${rate}</p>
+                </div>
 
-          <p class="cardRateCount">( ${rateCount})</p>
+                <p class="cardRateCount">( ${rateCount})</p>
+            </div>
         </div>
-      </div>
       `;
     }
 

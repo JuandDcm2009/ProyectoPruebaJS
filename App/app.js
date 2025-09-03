@@ -41,6 +41,7 @@ console.log(geo);
 
 
 const fCategory = document.querySelector("#category");
+
 const fPriceMax = document.querySelector("#PriceMax");
 const fPriceMin = document.querySelector("#PriceMin");
 const fRate = document.querySelector("#rate");
@@ -165,6 +166,8 @@ export function setMessage(title, error) {
 
 
 // TODO: Render Cards 
+
+
 
 function renderCard(obj) {
   const mainCard = document.querySelector(".mainCards");
