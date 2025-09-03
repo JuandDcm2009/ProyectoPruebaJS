@@ -52,20 +52,22 @@ cartButton.addEventListener("click", () => {
 }
 
 
-export function actualizarDatos(obj) {
-    cTitle.textContent = obj.title
-    cImg.src = obj.image;
-    cDec.textContent = obj.description;
-    cPrice.textContent = `$ ${obj.price} (USD)`;
-    cRate.textContent = obj.rating.rate;
-    cRateCount.textContent = `( ${obj.rating.count})`;
-    cCategory.textContent = obj.category;
-    updateCartUI()
+export function actualizarDatos(obj) { 
+    if (cTitle && cCategory && cDec && cImg && cPrice && cRate && cRateCount) {
+        cTitle.textContent = obj.title
+        cImg.src = obj.image;
+        cDec.textContent = obj.description;
+        cPrice.textContent = `$ ${obj.price} (USD)`;
+        cRate.textContent = obj.rating.rate;
+        cRateCount.textContent = `( ${obj.rating.count})`;
+        cCategory.textContent = obj.category;
+        updateCartUI()
+    }
 }
 
 function updateCartUI() {
   let LocalCart = localStorage.getItem("Cart");
-  let cart = JSON.parse(LocalCart);
+  let cart = LocalCart ? JSON.parse(LocalCart) : [];
   let cartUI = document.querySelector(".cart-count");
   cartUI.style.animation = "none";
   cartUI.offsetHeight;

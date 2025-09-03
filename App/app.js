@@ -82,10 +82,8 @@ if (checkPrice && checkRate && fPriceMax && fPriceMin && fRate && fCategory && f
 
 
 
-
-
-fSearchButton.addEventListener("click", (e) => {
-  e.preventDefault();
+function filter() {
+  
 
   if (!fForm.checkValidity()) {
     setMessage("Error", "Hubo un error al intentar buscar los datos");
@@ -143,6 +141,15 @@ fSearchButton.addEventListener("click", (e) => {
     renderCard(objectosFiltrados);
   }
   
+}
+
+fSearchButton.addEventListener("click", (e) => { 
+  e.preventDefault();
+  filter()
+});
+
+fCategory.addEventListener("change", () => {
+  filter();
 });
 
 }
@@ -176,7 +183,7 @@ function renderCard(obj) {
 
 export function updateCartUI() {
   let LocalCart = localStorage.getItem("Cart");
-  let cart = JSON.parse(LocalCart);
+  let cart = LocalCart ? JSON.parse(LocalCart) : [];
   let cartUI = document.querySelector(".cart-count");
   cartUI.style.animation = "none";
   cartUI.offsetHeight;

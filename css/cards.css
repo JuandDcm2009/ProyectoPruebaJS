@@ -335,6 +335,12 @@ main {
     #searchBar {
     width: 100px;
   }
+  .content_section {
+    width: 700px;
+    margin: 40px auto;
+    align-items: center;
+    justify-content: center;
+  }
 
   .div-container {
     gap: 10px;
@@ -349,6 +355,10 @@ main {
     animation: formAnimation 0.8s ease 0s 1;
     flex-direction: row;
   }
+
+  main {
+    width: 100%;
+  }
  
   
 }
@@ -356,6 +366,52 @@ main {
 
 
 @media (max-width: 910px) and (min-width: 580px){
+  main {
+    width: 100%;
+    margin-top: 120px;
+  }
+
+  .left {
+    width: 500px;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .left > img {
+    width: 200px;
+  }
+
+  .title {
+    text-shadow: -1px 1px 2px rgba(0, 0, 0, 0.295);
+    margin: 10px 0px;
+    margin-bottom: 20px;
+    font-weight: bold;
+    font-size: 2rem;
+    width: 500px;
+    min-height: 100px;
+    overflow: hidden;
+    text-align: center 222;
+  
+  }
+
+  .top {
+    width: 500px;
+    justify-content: flex-start;
+    align-items: center;
+  }
+
+
+  .content_section {
+    width: 500px;
+    margin: 40px auto;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .up {
+    flex-direction: column;
+    align-items: flex-start;
+  }
 
   .profileImg {
     right: 20px;
@@ -391,6 +447,7 @@ main {
   }  
 
   .another-container {
+    width: 100%;
     align-self: flex-start;
     align-items: center;
     justify-content: flex-start;
@@ -403,7 +460,55 @@ main {
 
 
 
+
 @media (max-width: 580px) and (min-width: 0px) {
+
+  main {
+    width: 100%;
+    margin-top: 120px;
+  }
+
+  .left {
+    width: 300px;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .left > img {
+    width: 200px;
+  }
+
+  .title {
+    text-shadow: -1px 1px 2px rgba(0, 0, 0, 0.295);
+    margin: 10px 0px;
+    margin-bottom: 20px;
+    font-weight: bold;
+    font-size: 1.5rem;
+    width: 300px;
+    min-height: 100px;
+    overflow: hidden;
+    text-align: center 222;
+  
+  }
+
+  .top {
+    width: 300px;
+    justify-content: flex-start;
+    align-items: center;
+  }
+
+
+  .content_section {
+    width: 300px;
+    margin: 40px auto;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .up {
+    flex-direction: column;
+    align-items: flex-start;
+  }
   
 
   @keyframes outForm {
@@ -437,14 +542,13 @@ main {
   }
 
   .another-container {
+    width: 100%;
     margin-top: 20px;
     align-items: center;
     justify-content: flex-start;
   }
 
-  #searchBar {
-    width: 200px;
-  }
+
 
   .header {
     justify-content: center;
@@ -475,6 +579,33 @@ main {
     opacity: 1;
   }
 
+  .rate-section {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 150px;
+    gap: 20px;
+  }
+  
+  .rate-section img {
+    width: 80px;
+  }
+  
+  
+  .rate-text {
+    text-shadow: -1px 1px 2px rgba(0, 0, 0, 0.295);
+    font-size: 3rem;
+    margin: 0px;
+  }
+  
+  .rate-count-text {
+    color: #00795a;
+    font-size: 1rem;
+    text-shadow: -1px 1px 2px rgba(0, 0, 0, 0.295);
+  }
+
 
 
 }
+

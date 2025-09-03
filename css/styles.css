@@ -672,3 +672,9 @@ main {
 
 }
 
+@media (max-width: 380px) {
+  #searchBar {
+    width: 80px;
+  }
+  
+}
