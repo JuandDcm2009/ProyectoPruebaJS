@@ -15,23 +15,30 @@ geo.map((e) => {
 
 let filterSelect = document.querySelector(".formSelect");
 
-function loadCategorys() {
-  categories.forEach((e) => {
-    let option = document.createElement("option");
-    option.value = e;
-    option.textContent = e;
 
-    filterSelect.appendChild(option);
-  });
+export function loadCategorys() {
+  if (filterSelect) {
+    categories.forEach((e) => {
+      let option = document.createElement("option");
+      option.value = e;
+      option.textContent = e;
+
+      filterSelect.appendChild(option);
+    });
+  }
 }
+  
 
-loadCategorys();
+
+
 
 console.log(geo);
 
 // TODO: Filter function
 
 // Elementos
+
+
 
 const fCategory = document.querySelector("#category");
 const fPriceMax = document.querySelector("#PriceMax");
@@ -45,7 +52,8 @@ const checkPrice = document.querySelector("#checkPrice");
 const checkRate = document.querySelector("#rateCheck");
 
 
-checkPrice.addEventListener("click", () => {
+if (checkPrice && checkRate && fPriceMax && fPriceMin && fRate && fCategory && fSearchBar && fSearchButton && fForm && fSearchBar) {
+  checkPrice.addEventListener("click", () => {
   if (checkPrice.checked == false) {
     fPriceMax.style.display = "none";
     fPriceMin.style.display = "none";
@@ -56,19 +64,24 @@ checkPrice.addEventListener("click", () => {
     fPriceMin.style.display = "block";
   }
 
-})
+  })
 
-checkRate.addEventListener("click", () => {
-  if (checkRate.checked == false) {
-    fRate.style.display = "none";
-    fRate.value = "";
 
-  } else {
-    fRate.style.display = "block";
 
-  }
+  checkRate.addEventListener("click", () => {
+    if (checkRate.checked == false) {
+      fRate.style.display = "none";
+      fRate.value = "";
 
-})
+    } else {
+      fRate.style.display = "block";
+
+    }
+
+  })
+
+
+
 
 
 fSearchButton.addEventListener("click", (e) => {
@@ -132,6 +145,7 @@ fSearchButton.addEventListener("click", (e) => {
   
 });
 
+}
 //TODO: Message Error
 
 
@@ -147,14 +161,16 @@ export function setMessage(title, error) {
 
 function renderCard(obj) {
   const mainCard = document.querySelector(".mainCards");
-  mainCard.querySelectorAll("render-card").forEach(card => card.remove());
+  if (mainCard) {
+    mainCard.querySelectorAll("render-card").forEach(card => card.remove());
+  
 
   obj.forEach((e) => {
     const element = document.createElement("render-card");
     element.render(e.title, e.price, e.image, e.rating.rate, e.rating.count, e.id);
     document.querySelector(".mainCards").appendChild(element);
   })
-
+  }
   
 }
 
@@ -168,9 +184,11 @@ export function updateCartUI() {
   
   cartUI.textContent = cart.length;
 }
-
 renderCard(geo);
 updateCartUI();
+loadCategorys();
+
+
 
 // Cart UI ITem
 

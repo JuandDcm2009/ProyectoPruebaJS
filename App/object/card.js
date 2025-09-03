@@ -1,11 +1,16 @@
 import { dataFrom } from "../api.js";
 import { parseEvent } from "../helper.js";
 import { setMessage, updateCartUI } from "../app.js";
-import { actualizarDatos } from "../cardDetails.js";
+
 
 const geo = await dataFrom(parseEvent);
 let LocalCart = localStorage.getItem("Cart");
+let LocalObj = localStorage.getItem("actualObj");
+
+let ActualObj = LocalObj ? JSON.parse(LocalObj) : {};
 let cart = LocalCart ? JSON.parse(LocalCart) : []; 
+
+
 
 console.log(cart)
 
@@ -41,7 +46,7 @@ export class Card extends HTMLElement {
                 button.textContent = "Remove from cart";
                 console.log(cart);
                 localStorage.setItem("Cart", JSON.stringify(cart));
-                setMessage("Exito!", `${obj.title} añadido al carrito.`);
+                setMessage("Operación", `Item añadido al carrito.`);
                 updateCartUI();
                 /* this.onCart = true; */
             } else {
@@ -51,7 +56,7 @@ export class Card extends HTMLElement {
                 localStorage.setItem("Cart", JSON.stringify(cart));
                 button.textContent = "Add to cart";
                 console.log(cart);
-                setMessage("Operación exitosa", `${obj.title} removido del carrito.`);
+                setMessage("Operación", `Item removido del carrito.`);
                 updateCartUI();
                 /* this.onCart = false; */
             }
@@ -65,8 +70,10 @@ export class Card extends HTMLElement {
 
         detailsButton.addEventListener("click", () => {
             console.log("Click!");
+            ActualObj = obj;
+            localStorage.setItem("actualObj", JSON.stringify(ActualObj));
             document.location.href = '../App/cards.html';
-            actualizarDatos(obj);
+            
         })
 
         
@@ -123,6 +130,11 @@ export class Card extends HTMLElement {
             height: 60px;
             overflow: hidden;
             text-align: center;
+            }
+
+            .titleCard:hover {
+                cursor: pointer;
+                text-decoration: underline;
             }
 
             .imgCard {

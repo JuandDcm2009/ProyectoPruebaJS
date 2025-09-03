@@ -12,21 +12,23 @@
     <link rel="stylesheet" href="../css/styles.css" />
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Fake store</title>
-
+    <title>Chein</title>
+    <script src="./cardDetails.js" type="module" defer DOMContentLoaded></script>
     <script src="./app.js" type="module" defer></script>
     <script src="./object/message.js" type="module" defer></script>
     <script src="./object/card.js" type="module" defer></script>
+    <script src="./DOM.js" type="module" defer></script>
   </head>
   <body>
     <header>
       <div class="header">
          <h1 class="headerTitle">CHEIN</h1>
+         <img src="../src/down_arrow.svg" alt="Icon" class="nav-button">
         <div class="down-section">
           <div class="cart-container">
             <p class="cart-count">0</p>
           </div>
-          <nav>
+          <nav class="nav-container">
             <a href="./index.html" class="button">Home</a>
             <a href="./index.html" class="button">Cart</a>
             <a href="./index.html" class="button">Contact us</a>
@@ -35,10 +37,14 @@
         </div>
     </header>
     <section class="filter-section">
+      <div class="open-filter-button">
+        <img src="../src/filter_open.svg" alt="Icon" class="open-filter-buton-image">
+        <p class="open-filter-button-title">Close Filter</p>
+      </div>
       <form action="" class="filter-form">
         <div class="div-container">
           <div class="container">
-            <label for="category">Category</label>
+            <label for="category" class="cat">Category</label>
             <select name="category" id="category" class="formSelect">
               <option value="all">all</option>
             </select>
