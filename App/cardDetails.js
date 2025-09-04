@@ -1,8 +1,13 @@
-
+import { dataFrom } from "./api.js";
+import { parseEvent } from "./helper.js";
 import { setMessage } from "./app.js";
+import { Card } from "./object/card.js";
+
 let LocalObj = localStorage.getItem("actualObj");
 let ActualObj = LocalObj ? JSON.parse(LocalObj) : {};
 let onCart = false;
+
+const geo = await dataFrom(parseEvent);
 
 let LocalCart = localStorage.getItem("Cart");
 let cart = LocalCart ? JSON.parse(LocalCart) : []; 
@@ -25,6 +30,11 @@ if (cartButton) {
     if(onCart) {cartButton.textContent = "Remove from cart";} else {cartButton.textContent = "Add to cart"}
 
 cartButton.addEventListener("click", () => {
+    LocalCart = localStorage.getItem("Cart");
+    cart = LocalCart ? JSON.parse(LocalCart) : []; 
+
+    LocalObj = localStorage.getItem("actualObj");
+    ActualObj = LocalObj ? JSON.parse(LocalObj) : {};
 
     onCart = cart.some(e => e.id === ActualObj.id);
 
@@ -54,6 +64,7 @@ cartButton.addEventListener("click", () => {
 
 export function actualizarDatos(obj) { 
     if (cTitle && cCategory && cDec && cImg && cPrice && cRate && cRateCount) {
+        renderReco(geo);
         cTitle.textContent = obj.title
         cImg.src = obj.image;
         cDec.textContent = obj.description;
@@ -76,5 +87,17 @@ function updateCartUI() {
   cartUI.textContent = cart.length;
 }
 
-
+function renderReco(obj) {
+    let recomendados = [];
+    obj.forEach((e) => {
+        if (e.category == ActualObj.category && recomendados.length < 3 && e.id !== ActualObj.id) {
+            recomendados.push(e);
+        }
+    });
+    recomendados.forEach((e) => {
+        const element = document.createElement("render-card");
+        element.render(e.title, e.price, e.image, e.rating.rate, e.rating.count, e.id);
+        document.querySelector(".recos").appendChild(element);
+    });
+}
 actualizarDatos(ActualObj);

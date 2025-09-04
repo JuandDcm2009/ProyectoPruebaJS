@@ -18,6 +18,8 @@ const imageButton = document.querySelector(".open-filter-buton-image");
 const form = document.querySelector(".filter-form");
 let formOpen = true;
 
+if (formButton && titleButton && imageButton && form) {
+
 formButton.addEventListener("click", () => {
     formOpen = formOpen == true ? false : true;
     
@@ -36,3 +38,8 @@ formButton.addEventListener("click", () => {
         titleButton.textContent = "Open filter";
     }  
 })
+}
+
+const carritoUI = document.querySelector(".cart-container");
+carritoUI.addEventListener("click", () => document.location.href = "../App/cart.html");
+

@@ -473,6 +473,10 @@ main {
   
 }
 
+.cart-container:hover {
+  cursor: pointer;
+}
+
 .nav-button {
   display: none;
 }
@@ -557,6 +561,8 @@ main {
   .cart-container {
     left: 10px;
   }
+
+
 
   .div-container {
     height: 100%;

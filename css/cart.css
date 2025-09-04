@@ -106,27 +106,42 @@
     
   }
 
-  main  {
-    flex-wrap: wrap;
-    gap: 30px;
-    margin: 100px auto;
-    min-width: 300px;
-    width: auto;
-    margin-top: 50px;
-    display: flex;
-    justify-content: center;
-  }
+  @keyframes load {
+    0% {
+        opacity: 0;
+        transform: translateY(25%);
+        color: white;
+        box-shadow: none;
+    }
+
+    80% {
+        opacity: 1;
+        transform: translateY(0%);
+    }
+
+    100% {
+        color: #252525;
+        box-shadow: 0px 3px 3px 2px rgba(0, 0, 0, 0.199);
+    }
+}
+
+
 
   .cart-info {
+    margin: 130px auto;
+    margin-bottom: 20px;
+    animation: load 0.8s ease 0s 1;
     font-family: var(--bodyFont);
     display: flex;
     justify-content: flex-start;
     flex-direction: row;
     align-self: center;
     border-radius: 10px;
-    width: 70%;
+    width: 960px;
+    transition: all 0.3s ease;
     box-shadow: 0px 3px 3px 2px rgba(0, 0, 0, 0.199);
     font-weight: bold;
+    margin-bottom: 0px;
   }
 
   .img-section {
@@ -152,8 +167,6 @@
   margin: 5px;
   
 }
-
-
 
 .content-section {
   width: 70%;
@@ -185,6 +198,10 @@
   font-family: var(--bodyFont);
   font-size: 1rem;
   
+}
+
+.cart-container:hover {
+  cursor: pointer;
 }
 
 
@@ -225,13 +242,17 @@
   box-shadow: -1px 1px 1px rgba(0, 0, 0, 0.267);
 
 }
-  
+
 main {
-  width: 1160px;
-  margin: 0px auto;
-  margin-top: 200px;
+  width: 960px;
+  margin: 50px auto;
+  display: flex;
   flex-direction: column;
-  align-items: center;
+  align-items: stretch;
+  gap: 30px;
+  min-width: 300px;
+  margin-top: 40px;
+  justify-content: center;
 }
 
 @keyframes contentAnimation {
@@ -269,7 +290,7 @@ main {
   position: relative;
   animation: load 0.8s ease 0s 1;
   border-radius: 10px;
-  width: 70%;
+  width: 100%;
   height: 200px;
   font-family: var(--bodyFont);
   display: flex;
@@ -284,11 +305,16 @@ main {
 box-shadow: 0px 3px 3px 2px rgba(0, 0, 0, 0.199);
 }
 
+.cart-card {
+  width: 100%;
+}
+
 .left-content {
   display: flex;
   justify-content: center;
   align-items: center;
 }
+
 
 .content_container {
   max-width: 300px;
@@ -364,6 +390,7 @@ font-weight: bold;
   display: flex;
   gap: 5px;
   align-items: center;
+  
 }
 
 .cardButton {
@@ -393,12 +420,18 @@ font-weight: bold;
   
   /* TODO: RESPONSIVE */
   @media (min-width: 910px) and (max-width: 1150px) {
+
+    main {
+      width: 750px;
+    }
+
       #searchBar {
       width: 100px;
     }
-    .content_section {
-      width: 700px;
-      margin: 40px auto;
+    .cart-info {
+      width: 750px;
+      margin: 120px auto;
+      margin-bottom: 20px;
       align-items: center;
       justify-content: center;
     }
@@ -417,21 +450,17 @@ font-weight: bold;
       flex-direction: row;
     }
   
-    main {
-      width: 100%;
-    }
-   
     
   }
   
   
   
   @media (max-width: 910px) and (min-width: 580px){
+    
     main {
-      width: 100%;
-      margin-top: 120px;
+      width: 550px;
     }
-  
+
     .left {
       width: 500px;
       justify-content: center;
@@ -516,6 +545,19 @@ font-weight: bold;
       align-items: center;
       justify-content: flex-start;
     }
+
+    .cart-info {
+      width: 550px;
+      flex-direction: row;
+    }
+
+    .buyCart-button {
+      padding: 10px 30px;
+    }
+
+    .clearCart-button {
+      padding: 10px 20px;
+    }
   
   }
   
@@ -527,11 +569,14 @@ font-weight: bold;
     main {
       width: 100%;
       margin-top: 120px;
+      justify-content: center;
+      align-items: center;
     }
   
     .left {
       width: 300px;
       justify-content: center;
+      
       align-items: center;
     }
   
@@ -643,6 +688,25 @@ font-weight: bold;
       text-shadow: -1px 1px 2px rgba(0, 0, 0, 0.295);
     }
   
+
+    .cart-info {
+      width: 320px;
+      margin-bottom: 20px;
+      flex-direction: column;
+    }
   
+    .content-section {
+      flex-direction: column;
+      align-items: flex-start;
+    }
+
+    .buyCart-button {
+      padding: 10px 60px;
+      margin-top: 50px;
+    }
+
+    .img-section img {
+      display: none;
+    }
   
   }

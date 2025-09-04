@@ -15,6 +15,7 @@ let cart = LocalCart ? JSON.parse(LocalCart) : [];
 console.log(cart)
 
 export class Card extends HTMLElement {
+
     constructor() {
         super();
         this.attachShadow({mode: 'open'});
@@ -32,6 +33,9 @@ export class Card extends HTMLElement {
 
         // Añadir al carrito
         button.addEventListener("click", () => {
+            LocalCart = localStorage.getItem("Cart");
+            cart = LocalCart ? JSON.parse(LocalCart) : []; 
+
             if(cart === null) {
                 cart = [];
             }
@@ -64,14 +68,22 @@ export class Card extends HTMLElement {
         });
 
         const detailsButton = this.shadowRoot.querySelector(".titleCard");
+        const detailsButton1 = this.shadowRoot.querySelector(".imgCard");
+        const detailsButton2 = this.shadowRoot.querySelector(".cardPrice");
 
-        detailsButton.addEventListener("click", () => {
+        detailsButton.addEventListener("click", () => loadCardPage())
+        detailsButton1.addEventListener("click", () => loadCardPage())
+        detailsButton2.addEventListener("click", () => loadCardPage())
+
+
+        function loadCardPage() {
             console.log("Click!");
             ActualObj = obj;
             localStorage.setItem("actualObj", JSON.stringify(ActualObj));
             document.location.href = '../App/cards.html';
-            
-        })
+        }
+
+        
 
         
     }
@@ -204,7 +216,7 @@ export class Card extends HTMLElement {
             alt="Imagen"
             class="imgCard"
             />
-            <p class="cardPrice">$ ${price}</p>
+            <p class="cardPrice">$ ${price} (USD)</p>
             <p class="titleCard">
             ${title}
             </p>
